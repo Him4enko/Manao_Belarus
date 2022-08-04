@@ -22,8 +22,9 @@ class Database
         if(file_exists($this->path)) {
             $json_data = file_get_contents($this->path);
             $data = json_decode($json_data, true);
+            var_dump($arg);
             array_push($data['users'], $arg);
-            file_put_contents($this->path, $data);
+            file_put_contents($this->path, json_encode($data));
         }
     }
 

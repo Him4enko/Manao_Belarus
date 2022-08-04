@@ -1,6 +1,7 @@
 <?php
 require_once 'database.php';
-class Auth extends users
+require_once 'Users.php';
+class Auth extends Users
 {
     public function register($data)
     {
