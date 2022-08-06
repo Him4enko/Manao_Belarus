@@ -9,24 +9,25 @@ $(document).ready(function (e) {
             url: "app.php",
             data: form_data,
             success: function (data) {
-                // switch (data.key) {
-                //     case "password":
-                //         $("#password").html(data.value);
-                //         break;
-                //     case "login":
-                //         $("#login").html(data.value);
-                //         break;
-                //     case "name":
-                //         $("#name").html(data.value);
-                //         break;
-                //     case "verpass":
-                //         $("#verpass").html(data.value);
-                //         break;
-                //     case "success":
-                //         $("#message").html(data.value);
-                //         break;
-                // }
-                console.log($.parseJSON(data));
+                let temp = $.parseJSON(data);
+                switch (temp.code) {
+                    case "password":
+                        $("#password").text(temp.password);
+                        break;
+                    case "login":
+                        $("#login").text(temp.login);
+                        break;
+                    case "name":
+                        $("#name").text(temp.name);
+                        break;
+                    case "pass":
+                        $("#message").text(temp.pass);
+                        break;
+                    case "user":
+                        $("#message").text(temp.error);
+                        break;
+                }
+                console.log(temp.code);
             }
         });
     });

@@ -4,8 +4,8 @@ class verification
 {
     public function password($arg)
     {
-        if(count_chars($arg) >= 6) {
-            if(preg_match("/^[a-zа-яё\d][a-zа-яё\d]{1}$/i", $arg)) {
+        if(strlen($arg) >= 6) {
+            if(preg_match("/^[A-Za-zА-Яа-я0-9]+$/", $arg)) {
                 return True;
             }
         } else {
@@ -14,7 +14,7 @@ class verification
     }
     public function login($arg)
     {
-        if(count_chars($arg) >= 6) {
+        if(strlen($arg) >= 6) {
             return True;
         } else {
             return False;
@@ -22,8 +22,8 @@ class verification
     }
     public function name($arg)
     {
-        if(count_chars($arg) >= 2) {
-            if(preg_match("[a-z]/i")) {
+        if(strlen($arg) >= 2) {
+            if(preg_match("/^[A-Za-zА-Яа-я]+$/", $arg)) {
                 return True;
             } else {
                 return False;
