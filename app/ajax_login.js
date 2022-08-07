@@ -6,7 +6,7 @@ $(document).ready(function (e) {
         $.ajax({
             type: "POST",
             cache: false,
-            url: "login.php",
+            url: "./login.php",
             data: form_data,
             success: function (data) {
                 let temp = $.parseJSON(data);
@@ -16,6 +16,7 @@ $(document).ready(function (e) {
                         break;
                     case "error":
                         $("#message").text(temp.status);
+                        break;
                 }
                 console.log(temp.code);
             }

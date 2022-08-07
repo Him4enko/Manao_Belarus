@@ -6,7 +6,7 @@ $(document).ready(function (e) {
         $.ajax({
             type: "POST",
             cache: false,
-            url: "app.php",
+            url: "./app.php",
             data: form_data,
             success: function (data) {
                 let temp = $.parseJSON(data);
@@ -26,8 +26,10 @@ $(document).ready(function (e) {
                     case "user":
                         $("#message").text(temp.error);
                         break;
+                    case "yes":
+                        $(location).attr('href',"login.html");
+                        break;
                 }
-                console.log(temp.code);
             }
         });
     });

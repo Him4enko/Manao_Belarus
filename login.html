@@ -3,14 +3,23 @@
     <meta charset="UTF-8">
     <title>Test Work</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="/ajax_login.js"></script>
+    <script src="./app/ajax_login.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 </head>
 <body>
-<form action="" id="form">
-    <div><label for="login">Логин: <input type="text" name="login" id="login" required></label></div>
-    <div><label for="password">Пароль: <input type="password" name="password" id="password" required></label></div>
-    <div><input type="submit" value="Send"></div>
-    <div><p id="message"></p></div>
-</form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<div class="container min-vh-100 justify-content-center">
+    <div class="row justify-content-center">
+        <div class="col-6 text-center">
+            <form action="" id="form" class="position-absolute top-50 start-50 translate-middle">
+                <div><label for="login">Логин: <input type="text" class="form-control" name="login" id="login" required></label></div>
+                <div><label for="password">Пароль: <input type="password" class="form-control" name="password" id="password" required></label></div>
+                    <br><div><input type="submit" class="btn btn-primary" value="Войти"></div>
+                <div><p id="message"></p></div>
+            </form>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

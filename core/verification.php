@@ -22,8 +22,8 @@ class verification
     }
     public function name($arg)
     {
-        if(strlen($arg) >= 2) {
-            if(preg_match("/^[A-Za-zА-Яа-я]+$/", $arg)) {
+        if(strlen($arg) > 2) {
+            if(preg_match("/^[A-Za-zА-Яа-я]+$/u", $arg)) {
                 return True;
             } else {
                 return False;

@@ -14,6 +14,8 @@ if (!$verification->password($_POST['password'])) {
     echo (json_encode(['pass' => 'Пароли не совпадают', 'code' => 'pass']));
 } else if ($database->search($_POST['login'])) {
     echo (json_encode(['error' => 'Пользователь уже зарегистрирован!', 'code' => 'user']));
+} else {
+    echo (json_encode(['success' => 'Вы успешно зарегистрировались', 'code' => 'yes']));
 }
 if ($verification->password($_POST['password'])
     && $verification->login($_POST['login'])
@@ -27,7 +29,7 @@ if ($verification->password($_POST['password'])
         'password' => md5($_POST['password'])
     ];
     $database->insert($temp);
-    echo (json_encode(['success' => 'Вы успешно зарегистрировались']));
+
 }
 
 ?>
