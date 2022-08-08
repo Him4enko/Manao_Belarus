@@ -26,6 +26,9 @@ $(document).ready(function (e) {
                     case "user":
                         $("#message").text(temp.error);
                         break;
+                    case "email":
+                        $("#email").text(temp.email);
+                        break;
                     case "yes":
                         $(location).attr('href',"login.html");
                         break;
