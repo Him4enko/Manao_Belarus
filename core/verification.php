@@ -30,7 +30,7 @@ class verification
     }
     public function password($arg)
     {
-        if(strlen($arg) >= 6 && $this->space($arg)) {
+        if(strlen($arg) >= 6) {
             if(preg_match("/^[A-Za-zА-Яа-я0-9]+$/", $arg)) {
                 return True;
             }
@@ -48,7 +48,7 @@ class verification
     }
     public function name($arg)
     {
-        if(strlen($arg) > 2 && $this->space($arg)) {
+        if(strlen($arg) >= 2 ) {
             if(preg_match("/^[A-Za-zА-Яа-я]+$/u", $arg)) {
                 return True;
             } else {
