@@ -2,30 +2,21 @@
 require_once 'database.php';
 class verification
 {
-    public function space($arg)
-    {
-        for ( $i = 0; $i < strlen($arg); $i++ ) {
-            if($arg[$i] == " ") {
-                return False;
-                break;
-            } else {
-                return True;
-            }
-        }
-    }
     public function email($arg)
     {
+        $t = 0;
         $db = new Database();
         $data = $db->get();
-        if(preg_match("/^.+@.+\..+$/", $arg)) {
             for ($i = 0; $i < count($data['users']); $i++) {
                 if($data['users'][$i]['email'] == $arg) {
-                    return True;
-                } else {
-                    return False;
+                   $t++;
                 }
             }
-        }
+            if ($t > 0) {
+                return True;
+            } else {
+                return False;
+            }
 
     }
     public function password($arg)
@@ -40,16 +31,19 @@ class verification
     }
     public function login($arg)
     {
-        if(strlen($arg) >= 6 && $this->space($arg)) {
-            return True;
-        } else {
-            return False;
+        if(strlen($arg) >= 6) {
+            if (!preg_match('/ /', $arg)) {
+                return True;
+            } else {
+                return False;
+            }
         }
+
     }
     public function name($arg)
     {
         if(strlen($arg) >= 2 ) {
-            if(preg_match("/^[A-Za-zА-Яа-я]+$/u", $arg)) {
+            if(preg_match("/^[A-Za-zА-Яа-я]+$/u", $arg)) { // FROM PREG
                 return True;
             } else {
                 return False;
